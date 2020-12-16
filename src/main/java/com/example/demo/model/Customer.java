@@ -4,6 +4,9 @@ import lombok.Value;
 
 import java.util.Date;
 
+/**
+ * Customer model. Immutable.
+ */
 @Value
 public class Customer {
 
