@@ -1,8 +1,9 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Value;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 /**
  * Customer model. Immutable.
@@ -12,7 +13,7 @@ public class Customer {
 
     private long id;
     private String name;
-    private Date duetime;
-    private Date jointime;
+    private ZonedDateTime duetime;
+    private ZonedDateTime jointime;
 
 }
