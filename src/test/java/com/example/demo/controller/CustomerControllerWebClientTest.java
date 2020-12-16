@@ -4,6 +4,7 @@ import com.example.demo.model.Customer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,11 +21,13 @@ public class CustomerControllerWebClientTest {
     @LocalServerPort
     private int randomServerPort;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Test
     public void testSortCustomers() throws IOException {
         WebClient webClient = WebClient.create("http://localhost:" + randomServerPort);
 
-        final ObjectMapper objectMapper = new ObjectMapper();
         final Customer[] customers = objectMapper.readValue(new File("customers.json"), Customer[].class);
 
         Flux<Customer> responseFlux = webClient

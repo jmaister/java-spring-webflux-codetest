@@ -24,10 +24,12 @@ public class CustomerControllerWebTestClientTest {
     @Autowired
     private CustomerController controller;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Test
     public void testSortCustomers() throws IOException {
 
-        final ObjectMapper objectMapper = new ObjectMapper();
         final Customer[] customers = objectMapper.readValue(new File("customers.json"), Customer[].class);
 
         webTestClient.post()
