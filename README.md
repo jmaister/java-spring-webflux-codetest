@@ -34,3 +34,9 @@ Bonus point:
 * Add some tests to ensure your code works as expected. Is it better to test the
   controller or test the service layer directly? Either approach is valid so
   long as you can justify it.
+
+
+# Test with CLI
+
+
+    curl -X POST -H "Content-Type: application/json" -d @customers.json localhost:8080/customers/sort
